@@ -7,7 +7,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="max-w-6xl w-full mx-auto p-3 min-h-screen">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
