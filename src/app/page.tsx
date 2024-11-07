@@ -1,6 +1,9 @@
-import { DataTransferForm } from './_componenets/data-transfer'
+'use client'
+// import { DataTransferForm } from './_componenets/data-transfer'
+import dynamic from 'next/dynamic'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Database } from 'lucide-react'
+const DataTransferForm = dynamic(async () => (await import('./_componenets/data-transfer')).DataTransferForm, { ssr: false })
 
 export default function Page() {
   return (
@@ -9,7 +12,7 @@ export default function Page() {
 				<Database size={24} />
 				<h1 className="text-2xl font-bold leading-none">PowerBI Data Management</h1>
 			</span>
-			<Tabs defaultValue="data-transfer" className="w-full">
+			<Tabs defaultValue="data-transfer" className="w-full flex flex-col gap-4">
 				<TabsList className="w-full">
 					<TabsTrigger value="data-transfer" className="flex-grow">Data Transfer</TabsTrigger>
 					<TabsTrigger value="history" className="flex-grow">History</TabsTrigger>
